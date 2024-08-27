@@ -42,7 +42,7 @@
 
     "PrivateEndpointId": "dev",
 
-    "CreateNewPrivateDNSZones": false,
+    "CreateNewPrivateDNSZones": true,
     "PrivateDNSZoneRgName": "rg-daisp-dev-eu2-net",
 
     "DeployADFPortalPrivateEndpoint": true,
