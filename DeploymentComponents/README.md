@@ -4,7 +4,7 @@
     - Assign the Service Principal RBAC Owner rights at the Subscription(s)
     - Pre-create all Resource Groups and Assign the Service Principal Owner RBAC Owner rights at each Resource Group
 
-1. [Create a federated credential for the service principal](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows#add-federated-credentials)
+1. [Create a federated credential for the service principal](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp#configure-a-federated-identity-credential-on-an-app)
     - Please use an entity type of environment
     - You will need to create a new federated credential for each environment you're deploying.
         - The IP kit deploys up to 3 environments: **development**, **test**, and **production**
