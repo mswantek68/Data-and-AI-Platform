@@ -1,76 +1,76 @@
 {
     "azureResourceLocation": "eastus2",
 
-    "PrimaryRgName": "",
+    "PrimaryRgName": "rg-daisp-dev-eu2-main",
 
     "tags": {
         "env": "dev"
     },
 
-    "fabricCapacityName": "",
+    "fabricCapacityName": "daispdeveu2fabriccapacity",
 
     "fabricSKU": "F2",
     
     "synapseWorkspaceName": "",
 
-    "dataFactoryName": "",
+    "dataFactoryName": "daisp-dev-eu2-adf-01",
 
-    "azureSQLServerName": "",
+    "azureSQLServerName": "daisp-dev-eu2-sql-01",
     "azureSQLServerDBName": "MetadataControl",
 
-    "keyVaultName": "",
+    "keyVaultName": "daisp-dev-eu2-kv-01",
 
-    "dataLakeName": "",
+    "dataLakeName": "daispdeveu2dl01",
 
-    "landingStorageName": "",
+    "landingStorageName": "daispdeveu2landstg01",
 
-    "LogicAppRgName": "",
+    "LogicAppRgName": "rg-daisp-dev-eu2-logic",
 
-    "logicAppName": "",
+    "logicAppName": "daisp-dev-eu2-logic-01",
 
-    "logicAppServicePlanName": "",
+    "logicAppServicePlanName": "daisp-dev-eu2-logic-sp-01",
 
-    "logicAppStorageName": "",
+    "logicAppStorageName": "daispdeveu2logicstg01",
 
-    "logicAppInsightsName": "",
+    "logicAppInsightsName": "daisp-dev-eu2-logic-appi-01",
 
-    "purviewName": "",
+    "purviewName": "daisp-dev-eu2-pview-01",
 
-    "logAnalyticsName": "",
+    "logAnalyticsName": "daisp-dev-eu2-log-01",
 
-    "MlRgName": "",
+    "MlRgName": "rg-daisp-dev-eu2-ml",
 
-    "mlWorkspaceName": "",
+    "mlWorkspaceName": "dasipmlwsdev01",
 
-    "mlWorkspaceKeyVaultName": "",
+    "mlWorkspaceKeyVaultName": "daisp-dev-eu2-ml-kv-01",
 
-    "mlStorageName": "",
+    "mlStorageName": "daispdeveu2mlstg01",
 
-    "mlAppInsightsName": "",
+    "mlAppInsightsName": "daisp-dev-eu2-ml-appi-01",
 
-    "mlContainerRegistryName": "",
+    "mlContainerRegistryName": "daispdeveu2mlacr01",
 
-    "databricksWorkspaceName": "",
+    "databricksWorkspaceName": "daisp-dev-eu2-dbw-01",
 
-    "cognitiveServiceName": "",
+    "cognitiveServiceName": "daisp-dev-eu2-cs-01",
 
-    "eventHubNamespaceName": "",
+    "eventHubNamespaceName": "daisp-dev-eu2-eh-01",
 
-    "streamAnalyticsName": "",
+    "streamAnalyticsName": "daisp-dev-eu2-sa-01",
 
-    "OpenAIRgName": "",
+    "OpenAIRgName": "rg-daisp-dev-eu2-openai",
 
-    "OpenAIServiceName": "",
+    "OpenAIServiceName": "daisp-dev-eu2-openai-01",
 
-    "OpenAICognitiveSearchName": "",
+    "OpenAICognitiveSearchName": "daisp-dev-eu2-openai-cs-01",
 
-    "OpenAIDemoAppName": "",
+    "OpenAIDemoAppName": "daisp-dev-eu2-openai-app-01",
 
-    "OpenAIDemoAppInsightsName": "",
+    "OpenAIDemoAppInsightsName": "daisp-dev-eu2-openai-appi-01",
 
-    "OpenAIDemoKeyVaultName": "",
+    "OpenAIDemoKeyVaultName": "daisp-dev-eu2-openai-kv-01",
 
-    "OpenAIDemoDocumentIntelligenceName": "",
+    "OpenAIDemoDocumentIntelligenceName": "daisp-dev-eu2-openai-docint-01",
     
-    "OpenAIDemoAppServicePlanName": ""
+    "OpenAIDemoAppServicePlanName": "daisp-dev-eu2-openai-sp-01"
 }

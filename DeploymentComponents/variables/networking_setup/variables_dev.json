@@ -5,28 +5,28 @@
     "IpRangeStart": "0.0.0.0",
     "IpRangeEnd": "0.0.0.0",
 
-    "DeployNewVnet": false,
-    "NewVnetAddressSpace": "",
+    "DeployNewVnet": true,
+    "NewVnetAddressSpace": "10.253.0.0/18",
 
-    "VnetForResourcesRgName": "",
-    "VnetForResourcesName": "",
+    "VnetForResourcesRgName": "rg-daisp-dev-eu2-net",
+    "VnetForResourcesName": "daisp-dev-eu2-net-01",
 
     "DeployLogicAppInVnet": true,
-    "LogicAppSubnetName": "",
+    "LogicAppSubnetName": "logicAppSubnet",
     
     "DeployMLWorkspaceInManagedVnet": false,
     "DeployMLWorkspaceInCustomerVnet": true,
-    "MLComputeSubnetName": "",
+    "MLComputeSubnetName": "mlSubnet",
 
     "DeployDatabricksInVnet": true,
-    "VnetForDatabricksRgName": "",
-    "VnetForDatabricksName": "",
+    "VnetForDatabricksRgName": "daisp-dev-eu2-net-01",
+    "VnetForDatabricksName": "daisp-dev-eu2-net-01",
     "DatabricksPublicSubnetName": "publicSubnet",
     "DatabricksPrivateSubnetName": "privateSubnet",
 
-    "VnetForDatabricksTransitSubscriptionId": "{VnetForDatabricksTransitSubscriptionId}",
-    "VnetForDatabricksTransitRgName": "",
-    "VnetForDatabricksTransitName": "",
+    "VnetForDatabricksTransitSubscriptionId": "40468b26-abec-490b-b064-2c47a06c0265",
+    "VnetForDatabricksTransitRgName": "rg-daisp-dev-eu2-net",
+    "VnetForDatabricksTransitName": "daisp-dev-eu2-dbtransit",
     "DatabricksTransitPESubnetName": "default",
 
     "DeployOpenAiDemoAppInVnet": true,
@@ -36,14 +36,14 @@
     "CreatePrivateEndpointsInSameRgAsResource": true,
     "UseManualPrivateLinkServiceConnections": false,
 
-    "VnetforPrivateEndpointsRgName": "",
-    "VnetforPrivateEndpointsName": "",
+    "VnetforPrivateEndpointsRgName": "rg-daisp-dev-eu2-net",
+    "VnetforPrivateEndpointsName": "daisp-dev-eu2-net-01",
     "PrivateEndpointSubnetName": "AzurePaasResources",
 
     "PrivateEndpointId": "dev",
 
     "CreateNewPrivateDNSZones": false,
-    "PrivateDNSZoneRgName": "",
+    "PrivateDNSZoneRgName": "rg-daisp-dev-eu2-net",
 
     "DeployADFPortalPrivateEndpoint": true,
     "DeploySynapseWebPrivateEndpoint": false,
@@ -55,7 +55,7 @@
     "DeployVMswithBastion": false,
     "JumpBoxSubnetName": "jumpbox",
     "vmsPerEnv": 2,
-    "vmName": "",
-    "bastionName": ""
+    "vmName": "daispdeveu2vm",
+    "bastionName": "daispdeveu2bastion"
 
 }

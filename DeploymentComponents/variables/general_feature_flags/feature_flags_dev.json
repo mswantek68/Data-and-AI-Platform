@@ -3,7 +3,7 @@
 
     "DeployResourcesWithPublicAccess": true,
 
-    "DeployWithCustomNetworking": false,
+    "DeployWithCustomNetworking": true,
 
     "Assign_RBAC_On_Deployment": true,
 
@@ -63,7 +63,7 @@
 
     "DeployStreamAnalytics": false,
     
-    "DeployOpenAIServiceAndAiSearch": false,
+    "DeployOpenAIServiceAndAiSearch": true,
 
-    "DeployOpenAIDemoApp": false
+    "DeployOpenAIDemoApp": true
 }
