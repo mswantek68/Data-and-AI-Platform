@@ -13,30 +13,30 @@
     
     "synapseWorkspaceName": "",
 
-    "dataFactoryName": "daisp-dev-eu2-adf-01",
+    "dataFactoryName": "daisp-dev-eu2-adf-02",
 
-    "azureSQLServerName": "daisp-dev-eu2-sql-01",
+    "azureSQLServerName": "daisp-dev-eu2-sql-02",
     "azureSQLServerDBName": "MetadataControl",
 
     "keyVaultName": "daisp-dev-eu2-kv-02",
 
-    "dataLakeName": "daispdeveu2dl01",
+    "dataLakeName": "daispdeveu2dl02",
 
-    "landingStorageName": "daispdeveu2landstg01",
+    "landingStorageName": "daispdeveu2landstg02",
 
     "LogicAppRgName": "rg-daisp-dev-eu2-logic",
 
-    "logicAppName": "daisp-dev-eu2-logic-01",
+    "logicAppName": "daisp-dev-eu2-logic-02",
 
-    "logicAppServicePlanName": "daisp-dev-eu2-logic-sp-01",
+    "logicAppServicePlanName": "daisp-dev-eu2-logic-sp-02",
 
-    "logicAppStorageName": "daispdeveu2logicstg01",
+    "logicAppStorageName": "daispdeveu2logicstg02",
 
-    "logicAppInsightsName": "daisp-dev-eu2-logic-appi-01",
+    "logicAppInsightsName": "daisp-dev-eu2-logic-appi-02",
 
-    "purviewName": "daisp-dev-eu2-pview-01",
+    "purviewName": "daisp-dev-eu2-pview-02",
 
-    "logAnalyticsName": "daisp-dev-eu2-log-01",
+    "logAnalyticsName": "daisp-dev-eu2-log-02",
 
     "MlRgName": "rg-daisp-dev-eu2-ml",
 
@@ -44,33 +44,33 @@
 
     "mlWorkspaceKeyVaultName": "daisp-dev-eu2-ml-kv-02",
 
-    "mlStorageName": "daispdeveu2mlstg01",
+    "mlStorageName": "daispdeveu2mlstg02",
 
-    "mlAppInsightsName": "daisp-dev-eu2-ml-appi-01",
+    "mlAppInsightsName": "daisp-dev-eu2-ml-appi-02",
 
-    "mlContainerRegistryName": "daispdeveu2mlacr01",
+    "mlContainerRegistryName": "daispdeveu2mlacr02",
 
-    "databricksWorkspaceName": "daisp-dev-eu2-dbw-01",
+    "databricksWorkspaceName": "daisp-dev-eu2-dbw-02",
 
-    "cognitiveServiceName": "daisp-dev-eu2-cs-01",
+    "cognitiveServiceName": "daisp-dev-eu2-cs-02",
 
-    "eventHubNamespaceName": "daisp-dev-eu2-eh-01",
+    "eventHubNamespaceName": "daisp-dev-eu2-eh-02",
 
-    "streamAnalyticsName": "daisp-dev-eu2-sa-01",
+    "streamAnalyticsName": "daisp-dev-eu2-sa-02",
 
     "OpenAIRgName": "rg-daisp-dev-eu2-openai",
 
-    "OpenAIServiceName": "daisp-dev-eu2-openai-01",
+    "OpenAIServiceName": "daisp-dev-eu2-openai-02",
 
-    "OpenAICognitiveSearchName": "daisp-dev-eu2-openai-cs-01",
+    "OpenAICognitiveSearchName": "daisp-dev-eu2-openai-cs-02",
 
-    "OpenAIDemoAppName": "daisp-dev-eu2-openai-app-01",
+    "OpenAIDemoAppName": "daisp-dev-eu2-openai-app-02",
 
-    "OpenAIDemoAppInsightsName": "daisp-dev-eu2-openai-appi-01",
+    "OpenAIDemoAppInsightsName": "daisp-dev-eu2-openai-appi-02",
 
     "OpenAIDemoKeyVaultName": "daisp-dev-eu2-opai-kv-02",
 
-    "OpenAIDemoDocumentIntelligenceName": "daisp-dev-eu2-openai-docint-01",
+    "OpenAIDemoDocumentIntelligenceName": "daisp-dev-eu2-openai-docint-02",
     
-    "OpenAIDemoAppServicePlanName": "daisp-dev-eu2-openai-sp-01"
+    "OpenAIDemoAppServicePlanName": "daisp-dev-eu2-openai-sp-02"
 }
