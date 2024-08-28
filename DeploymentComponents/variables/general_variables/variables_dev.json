@@ -18,7 +18,7 @@
     "azureSQLServerName": "daisp-dev-eu2-sql-01",
     "azureSQLServerDBName": "MetadataControl",
 
-    "keyVaultName": "daisp-dev-eu2-kv-01",
+    "keyVaultName": "daisp-dev-eu2-kv-02",
 
     "dataLakeName": "daispdeveu2dl01",
 
@@ -42,7 +42,7 @@
 
     "mlWorkspaceName": "dasipmlwsdev01",
 
-    "mlWorkspaceKeyVaultName": "daisp-dev-eu2-ml-kv-01",
+    "mlWorkspaceKeyVaultName": "daisp-dev-eu2-ml-kv-02",
 
     "mlStorageName": "daispdeveu2mlstg01",
 
@@ -68,7 +68,7 @@
 
     "OpenAIDemoAppInsightsName": "daisp-dev-eu2-openai-appi-01",
 
-    "OpenAIDemoKeyVaultName": "daisp-dev-eu2-opai-kv-01",
+    "OpenAIDemoKeyVaultName": "daisp-dev-eu2-opai-kv-02",
 
     "OpenAIDemoDocumentIntelligenceName": "daisp-dev-eu2-openai-docint-01",
     
