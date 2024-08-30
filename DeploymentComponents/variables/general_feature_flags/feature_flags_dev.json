@@ -25,7 +25,7 @@
 
     "DeployADFArtifacts": true,
 
-    "UseDatabricksForIngestionNotebooks": true,
+    "UseDatabricksForIngestionNotebooks": false,
 
     "DeploySynapse": false,
 
@@ -37,13 +37,13 @@
 
     "DeploySynapseWithDataExfiltrationProtection": false,
 
-    "DeployDatabricks": true,
+    "DeployDatabricks": false,
 
-    "DeployDatabricksArtifacts": true,
+    "DeployDatabricksArtifacts": false,
 
-    "DeployDatabricksCompute": true,
+    "DeployDatabricksCompute": false,
 
-    "DatabricksUsesUnityCatalog": true,
+    "DatabricksUsesUnityCatalog": false,
     
     "DeployPurview": true,
 

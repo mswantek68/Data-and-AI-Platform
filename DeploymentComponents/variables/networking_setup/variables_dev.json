@@ -18,7 +18,7 @@
     "DeployMLWorkspaceInCustomerVnet": true,
     "MLComputeSubnetName": "mlSubnet",
 
-    "DeployDatabricksInVnet": true,
+    "DeployDatabricksInVnet": false,
     "VnetForDatabricksRgName": "rg-daisp-dev-eu2-net",
     "VnetForDatabricksName": "daisp-dev-eu2-net-01",
     "DatabricksPublicSubnetName": "publicSubnet",
