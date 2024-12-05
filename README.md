@@ -89,7 +89,7 @@ CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
 CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
 ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
 ```
-#### If your deploying all resources with no public access behind a virtual network and your service principal didn't have Owner RBAC rights on the **Subscription**
+#### If you're deploying all resources with no public access behind a virtual network and your service principal didn't have Owner RBAC rights on the **Subscription**
 
 3. Get Owner of Subscription to Provide AAD Group with Contributor Access to Purview Managed Resource Group
 
