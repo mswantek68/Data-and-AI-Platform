@@ -175,7 +175,7 @@ The Data Strategy IP consists of the following components:
 This code is intended to assist with delivery of a foundational platform for data strategy. It is possible that not all components will be relevant to every customer - this will need to be discovered and assessed during the Data & AI Strategy Workshops stage to understand the customer's current technical landscape and assess the maturity of the data estate. Also, the reference backlog may need amending to include customer-specific items in addition to those detailed in the base implementation.
 # Known Issues
 ## Power App for Acquisition Services
-Currently the Power app collects basic metadata for the ingestion service. It only provides basic functionality. See the readme file in the Data Acquistions service for manual installation/configuration steps.
+Currently the Power app collects basic metadata for the ingestion service. It only provides basic functionality. See the readme file in the Data Acquisitions service for manual installation/configuration steps.
 ## Lack of ability to add multiple file names/sources to Acquisition Service App.
 This is a known issue, but no resolution is available due to development resources.
 ## Ability to extend the Acquisitions Services app
