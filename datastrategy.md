@@ -69,7 +69,7 @@ Building data acumen within an organization requires a strategic and comprehensi
 
 - Foster Domain-Specific Knowledge for your industry, its the business processes, and the role data plays in decision making. 
 
-- Promote a culture that values Data-Based Decision Making. Teach team members how to formulate hypotheses, design experiments, and analyse results. 
+Teach team members how to formulate hypotheses, design experiments, and analyze results.
 
 - Encourage cross-functional communication and collaboration to break down silos and ensure that data insights are shared and acted upon across the organization. 
 
