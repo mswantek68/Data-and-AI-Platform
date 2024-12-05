@@ -112,8 +112,6 @@ ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName];
 ## Create Control Table Records for Metadata Driven Ingestion
 1. Please create control table records in the dbo.MetadataControl table in the Azure SQL DB. Please follow the instructions [here](azure_sql_artifacts/README.md)
     - Every time you need to ingest a new source entity (e.g. sql table, csv file, Excel tab), please create one control table record when moving data from source to landing, one for landing to raw, and one for raw to staging.
-# Steps to Deploy The Data Platform
-- [Click Here to Navigate to Deployment Instructions](DeploymentComponents/README.md)
 
 
 # Contributing
