@@ -23,7 +23,7 @@ The People component of our Data Strategy is centered on cultivating a culture w
 This culture is defined by its focus on a data-centric methodology, which prioritizes the gathering, analysis, and application of data. It ensures that data is not only valued but also easily accessible to everyone within the organization, which is essential for making well-informed decisions. By embedding data-driven insights into the decision-making process, an organization can nurture a culture that is authentically intelligence-driven.
 - **Center of Enablement**: provide assistance to help others achieve use case enablement success.
 - **Ground your team**: provide foundational data/ai acumen to all members of the organization to assist in understanding the upcoming changes.
-- **Assess technical competencies**: understand who posesses these strengths in your enterprise estate.
+- **Assess technical competencies**: understand who possesses these strengths in your enterprise estate.
 - **Domain specific SME's**: identify your SME's in the estate.
 - **Foster Learning**: allow the team to learn and grow.
 - **Lead**: practice what you preach. Lead with data driven decisions. Let others emulate.
