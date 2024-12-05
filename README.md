@@ -1,5 +1,4 @@
-# Introduction
-Data Strategy is the foundation for implementing a modern data platform, and leverages Microsoft's own internal data estate journey.
+
 
 # 1. Deploy the Azure Infrastructure and Data Pipeline Related Artifacts
 1. [Create a Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
