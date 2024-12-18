@@ -510,7 +510,7 @@ jobs:
             DeployResourcesWithPublicAccess=${{ env.DeployResourcesWithPublicAccess }}
           failOnStdErr: false
 
-      - name: Deploy Microsoft Fabric Capcaity
+      - name: Deploy Microsoft Fabric Capacity
         if: ${{ env.DeployFabricCapacity == 'True' }}
         uses: Azure/arm-deploy@v1
         with:
