@@ -8,8 +8,8 @@
     "DeployNewVnet": true,
     "NewVnetAddressSpace": "10.253.0.0/18",
 
-    "VnetForResourcesRgName": "rg-daisp-dev-eu2-net",
-    "VnetForResourcesName": "daisp-dev-eu2-net-01",
+    "VnetForResourcesRgName": "rg-daip-dev-eu2-net",
+    "VnetForResourcesName": "daip-dev-eu2-net-01",
 
     "DeployLogicAppInVnet": true,
     "LogicAppSubnetName": "logicAppSubnet",
@@ -19,14 +19,14 @@
     "MLComputeSubnetName": "mlSubnet",
 
     "DeployDatabricksInVnet": false,
-    "VnetForDatabricksRgName": "rg-daisp-dev-eu2-net",
-    "VnetForDatabricksName": "daisp-dev-eu2-net-01",
+    "VnetForDatabricksRgName": "rg-daip-dev-eu2-net",
+    "VnetForDatabricksName": "daip-dev-eu2-net-01",
     "DatabricksPublicSubnetName": "publicSubnet",
     "DatabricksPrivateSubnetName": "privateSubnet",
 
     "VnetForDatabricksTransitSubscriptionId": "40468b26-abec-490b-b064-2c47a06c0265",
-    "VnetForDatabricksTransitRgName": "rg-daisp-dev-eu2-net",
-    "VnetForDatabricksTransitName": "daisp-dev-eu2-dbtransit",
+    "VnetForDatabricksTransitRgName": "rg-daip-dev-eu2-net",
+    "VnetForDatabricksTransitName": "daip-dev-eu2-dbtransit",
     "DatabricksTransitPESubnetName": "default",
 
     "DeployOpenAiDemoAppInVnet": true,
@@ -36,14 +36,14 @@
     "CreatePrivateEndpointsInSameRgAsResource": true,
     "UseManualPrivateLinkServiceConnections": false,
 
-    "VnetforPrivateEndpointsRgName": "rg-daisp-dev-eu2-net",
-    "VnetforPrivateEndpointsName": "daisp-dev-eu2-net-01",
+    "VnetforPrivateEndpointsRgName": "rg-daip-dev-eu2-net",
+    "VnetforPrivateEndpointsName": "daip-dev-eu2-net-01",
     "PrivateEndpointSubnetName": "AzurePaasResources",
 
     "PrivateEndpointId": "dev",
 
     "CreateNewPrivateDNSZones": true,
-    "PrivateDNSZoneRgName": "rg-daisp-dev-eu2-net",
+    "PrivateDNSZoneRgName": "rg-daip-dev-eu2-net",
 
     "DeployADFPortalPrivateEndpoint": true,
     "DeploySynapseWebPrivateEndpoint": false,
@@ -55,7 +55,7 @@
     "DeployVMswithBastion": false,
     "JumpBoxSubnetName": "jumpbox",
     "vmsPerEnv": 2,
-    "vmName": "daispdeveu2vm",
-    "bastionName": "daispdeveu2bastion"
+    "vmName": "daipdeveu2vm",
+    "bastionName": "daipdeveu2bastion"
 
 }
