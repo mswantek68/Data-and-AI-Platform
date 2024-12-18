@@ -13,64 +13,64 @@
     
     "synapseWorkspaceName": "",
 
-    "dataFactoryName": "daip-dev-eu2-adf-03",
+    "dataFactoryName": "daip-dev-eu2-adf-18",
 
-    "azureSQLServerName": "daip-dev-eu2-sql-03",
+    "azureSQLServerName": "daip-dev-eu2-sql-18",
     "azureSQLServerDBName": "MetadataControl",
 
-    "keyVaultName": "daip-dev-eu2-kv-03",
+    "keyVaultName": "daip-dev-eu2-kv-18",
 
-    "dataLakeName": "daipdeveu2dl03",
+    "dataLakeName": "daipdeveu2dl18",
 
-    "landingStorageName": "daipdeveu2landstg03",
+    "landingStorageName": "daipdeveu2landstg18",
 
     "LogicAppRgName": "rg-daip-dev-eu2-logic",
 
-    "logicAppName": "daip-dev-eu2-logic-03",
+    "logicAppName": "daip-dev-eu2-logic-18",
 
-    "logicAppServicePlanName": "daip-dev-eu2-logic-sp-03",
+    "logicAppServicePlanName": "daip-dev-eu2-logic-sp-18",
 
-    "logicAppStorageName": "daipdeveu2logicstg03",
+    "logicAppStorageName": "daipdeveu2logicstg18",
 
-    "logicAppInsightsName": "daip-dev-eu2-logic-appi-03",
+    "logicAppInsightsName": "daip-dev-eu2-logic-appi-18",
 
-    "purviewName": "daip-dev-eu2-pview-03",
+    "purviewName": "daip-dev-eu2-pview-18",
 
-    "logAnalyticsName": "daip-dev-eu2-log-03",
+    "logAnalyticsName": "daip-dev-eu2-log-18",
 
     "MlRgName": "rg-daip-dev-eu2-ml",
 
     "mlWorkspaceName": "dasipmlwsdev01",
 
-    "mlWorkspaceKeyVaultName": "daip-dev-eu2-ml-kv-03",
+    "mlWorkspaceKeyVaultName": "daip-dev-eu2-ml-kv-18",
 
-    "mlStorageName": "daipdeveu2mlstg03",
+    "mlStorageName": "daipdeveu2mlstg18",
 
-    "mlAppInsightsName": "daip-dev-eu2-ml-appi-03",
+    "mlAppInsightsName": "daip-dev-eu2-ml-appi-18",
 
-    "mlContainerRegistryName": "daipdeveu2mlacr03",
+    "mlContainerRegistryName": "daipdeveu2mlacr18",
 
-    "databricksWorkspaceName": "daip-dev-eu2-dbw-03",
+    "databricksWorkspaceName": "daip-dev-eu2-dbw-18",
 
-    "cognitiveServiceName": "daip-dev-eu2-cs-03",
+    "cognitiveServiceName": "daip-dev-eu2-cs-18",
 
-    "eventHubNamespaceName": "daip-dev-eu2-eh-03",
+    "eventHubNamespaceName": "daip-dev-eu2-eh-18",
 
-    "streamAnalyticsName": "daip-dev-eu2-sa-03",
+    "streamAnalyticsName": "daip-dev-eu2-sa-18",
 
     "OpenAIRgName": "rg-daip-dev-eu2-openai",
 
-    "OpenAIServiceName": "daip-dev-eu2-openai-03",
+    "OpenAIServiceName": "daip-dev-eu2-openai-18",
 
-    "OpenAICognitiveSearchName": "daip-dev-eu2-openai-cs-03",
+    "OpenAICognitiveSearchName": "daip-dev-eu2-openai-cs-18",
 
-    "OpenAIDemoAppName": "daip-dev-eu2-openai-app-03",
+    "OpenAIDemoAppName": "daip-dev-eu2-openai-app-18",
 
-    "OpenAIDemoAppInsightsName": "daip-dev-eu2-openai-appi-03",
+    "OpenAIDemoAppInsightsName": "daip-dev-eu2-openai-appi-18",
 
-    "OpenAIDemoKeyVaultName": "daip-dev-eu2-opai-kv-03",
+    "OpenAIDemoKeyVaultName": "daip-dev-eu2-opai-kv-18",
 
-    "OpenAIDemoDocumentIntelligenceName": "daip-dev-eu2-openai-docint-03",
+    "OpenAIDemoDocumentIntelligenceName": "daip-dev-eu2-openai-docint-18",
     
-    "OpenAIDemoAppServicePlanName": "daip-dev-eu2-openai-sp-03"
+    "OpenAIDemoAppServicePlanName": "daip-dev-eu2-openai-sp-18"
 }
