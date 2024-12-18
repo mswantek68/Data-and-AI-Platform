@@ -3,7 +3,7 @@
 
     "DeployResourcesWithPublicAccess": true,
 
-    "DeployWithCustomNetworking": true,
+    "DeployWithCustomNetworking": false,
 
     "Assign_RBAC_On_Deployment": true,
 
