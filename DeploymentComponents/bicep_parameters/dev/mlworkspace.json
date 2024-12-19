@@ -9,10 +9,9 @@
     },
     "DataLakeContainerNames": {
       "value": [
-        "raw",
-        "structured",
-        "staging",
-        "curated"
+        "bronze",
+        "silver",
+        "gold"
       ]
     }
   }

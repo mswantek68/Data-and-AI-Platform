@@ -16,6 +16,9 @@ param keyVaultName string
 
 param PrimaryRgName string
 
+
+
+
 @description('Public Networking Access')
 param RedeploymentAfterNetworkingIsSetUp string
 //always enabled initially so ML Artifacts artifacts can be deployed from GitHub Runner. 
@@ -233,9 +236,19 @@ resource r_containerRegistry 'Microsoft.ContainerRegistry/registries@2021-09-01'
   name: containerRegistryName
 }
 
-resource r_mlworkspace 'Microsoft.MachineLearningServices/workspaces@2023-06-01-preview' = {
-  name: mlWorkspaceName
-  kind: 'Hub'
+
+
+//Added as a deployment test 12-19-24 before adding to the main template
+param workspaceKinds array = [
+  'Default'
+  'Project'
+  'Hub'
+  'FeatureStore'
+]
+
+resource r_mlworkspaces 'Microsoft.MachineLearningServices/workspaces@2023-06-01-preview' = [for kind in workspaceKinds: {
+  name: '${mlWorkspaceName}-${kind}'
+  kind: kind
   location: location
   sku: {
     name: 'Basic'
@@ -245,7 +258,7 @@ resource r_mlworkspace 'Microsoft.MachineLearningServices/workspaces@2023-06-01-
     type: 'SystemAssigned'
   }
   properties: {
-    friendlyName: mlWorkspaceName
+    friendlyName: '${mlWorkspaceName}-${kind}'
     storageAccount: r_mlStorageAccount.id
     keyVault: r_keyvault.id
     applicationInsights: r_appinsights.id
@@ -256,11 +269,12 @@ resource r_mlworkspace 'Microsoft.MachineLearningServices/workspaces@2023-06-01-
     systemDatastoresAuthMode: 'identity'
     managedNetwork: (DeployInManagedVnet == false) ? null : managedNetwork
   }
-}
+}]
 
-resource r_dataLake_adls_datastores 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for DataLakeContainerName in DataLakeContainerNames: {
-  name: 'ds_adls_${DataLakeContainerName}'
-  parent: r_mlworkspace
+
+resource r_dataLake_adls_datastores 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for (kind, i) in workspaceKinds: {
+  name: 'ds_adls_${DataLakeContainerNames[i]}'
+  parent: r_mlworkspaces[i]
   properties: {
     credentials: {
       credentialsType: 'None'
@@ -270,14 +284,14 @@ resource r_dataLake_adls_datastores 'Microsoft.MachineLearningServices/workspace
     tags: {}
     datastoreType: 'AzureDataLakeGen2'
     accountName: dataLakeName
-    filesystem: DataLakeContainerName
+    filesystem: DataLakeContainerNames[i]
     serviceDataAccessAuthIdentity: 'WorkspaceSystemAssignedIdentity'
   }
 }]
 
-resource r_dataLake_blob_datastores 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for DataLakeContainerName in DataLakeContainerNames: {
-  name: 'ds_blob_${DataLakeContainerName}'
-  parent: r_mlworkspace
+resource r_dataLake_blob_datastores 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for (kind, i) in workspaceKinds: {
+  name: 'ds_blob_${DataLakeContainerNames[i]}'
+  parent: r_mlworkspaces[i]
   properties: {
     credentials: {
       credentialsType: 'None'
@@ -287,19 +301,101 @@ resource r_dataLake_blob_datastores 'Microsoft.MachineLearningServices/workspace
     tags: {}
     datastoreType: 'AzureBlob'
     accountName: dataLakeName
-    containerName: DataLakeContainerName
+    containerName: DataLakeContainerNames[i]
     serviceDataAccessAuthIdentity: 'WorkspaceSystemAssignedIdentity'
   }
 }]
+
+
+
+// resource r_mlworkspace 'Microsoft.MachineLearningServices/workspaces@2023-06-01-preview' = {
+//   name: mlWorkspaceName
+//   location: location
+//   sku: {
+//     name: 'Basic'
+//     tier: 'Basic'
+//   }
+//   identity: {
+//     type: 'SystemAssigned'
+//   }
+//   properties: {
+//     friendlyName: mlWorkspaceName
+//     storageAccount: r_mlStorageAccount.id
+//     keyVault: r_keyvault.id
+//     applicationInsights: r_appinsights.id
+//     containerRegistry: r_containerRegistry.id
+//     hbiWorkspace: hbiWorkspace
+//     v1LegacyMode: false
+//     publicNetworkAccess: publicNetworkAccess
+//     systemDatastoresAuthMode: 'identity'
+//     managedNetwork: (DeployInManagedVnet == false) ? null : managedNetwork
+//   }
+// }
+
+// resource r_dataLake_adls_datastores 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for DataLakeContainerName in DataLakeContainerNames: {
+//   name: 'ds_adls_${DataLakeContainerName}'
+//   parent: r_mlworkspace
+//   properties: {
+//     credentials: {
+//       credentialsType: 'None'
+//     }
+//     description: 'Datastore for the Azure Data Lake Gen2 Account'
+//     properties: {}
+//     tags: {}
+//     datastoreType: 'AzureDataLakeGen2'
+//     accountName: dataLakeName
+//     filesystem: DataLakeContainerName
+//     serviceDataAccessAuthIdentity: 'WorkspaceSystemAssignedIdentity'
+//   }
+// }]
+
+// resource r_dataLake_blob_datastores 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for DataLakeContainerName in DataLakeContainerNames: {
+//   name: 'ds_blob_${DataLakeContainerName}'
+//   parent: r_mlworkspace
+//   properties: {
+//     credentials: {
+//       credentialsType: 'None'
+//     }
+//     description: 'Datastore for the Azure Data Lake Gen2 Account'
+//     properties: {}
+//     tags: {}
+//     datastoreType: 'AzureBlob'
+//     accountName: dataLakeName
+//     containerName: DataLakeContainerName
+//     serviceDataAccessAuthIdentity: 'WorkspaceSystemAssignedIdentity'
+//   }
+// }]
 
 resource r_loganalytics 'Microsoft.OperationalInsights/workspaces@2021-06-01' existing = if (DeployLogAnalytics == 'True') {
   scope: resourceGroup(logAnalyticsRG)
   name: logAnalyticsName
 }
 
-resource r_diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (DeployLogAnalytics == 'True') {
-  scope: r_mlworkspace
-  name: '${mlWorkspaceName}-diagnostic-loganalytics'
+// resource r_diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (DeployLogAnalytics == 'True') {
+//   scope: r_mlworkspace
+//   name: '${mlWorkspaceName}-diagnostic-loganalytics'
+//   properties: {
+//     workspaceId: r_loganalytics.id
+//     logs: [
+//       {
+//         categoryGroup: 'allLogs'
+//         enabled: true
+//       }
+//     ]
+//     metrics: [
+//       {
+//         category: 'AllMetrics'
+//         enabled: false
+//       }
+//     ]
+//   }
+// }
+
+
+// added 12-19-24
+resource r_diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = [for (kind, i) in workspaceKinds: if (DeployLogAnalytics == 'True') {
+  scope: r_mlworkspaces[i]
+  name: '${mlWorkspaceName}-${kind}-diagnostic-loganalytics'
   properties: {
     workspaceId: r_loganalytics.id
     logs: [
@@ -315,10 +411,40 @@ resource r_diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview
       }
     ]
   }
-}
+}]
 
-module m_aml_private_endpoint 'private_endpoint_ML.bicep' = if (vnetIntegration) {
-  name: 'aml_private_endpoint'
+
+
+
+// module m_aml_private_endpoint 'private_endpoint_ML.bicep' = if (vnetIntegration) {
+//   name: 'aml_private_endpoint'
+//   scope: resourceGroup(privateEndpointRg)
+//   params: {
+//     location:location
+//     VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
+//     VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
+//     PrivateEndpointSubnetName: PrivateEndpointSubnetName
+//     UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
+//     DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
+//     PrivateDNSZoneRgName: PrivateDNSZoneRgName
+//     privateDnsZoneName1:privateDnsZoneName1
+//     privateDnsZoneConfigsName1:replace(privateDnsZoneName1,'.','-')
+//     privateDnsZoneName2:privateDnsZoneName2
+//     privateDnsZoneConfigsName2:replace(privateDnsZoneName2,'.','-')
+//     resourceName: mlWorkspaceName
+//     resourceID: r_mlworkspace.id
+//     privateEndpointgroupIds: [
+//       'amlworkspace'
+//     ]
+//     mlStorageName: mlStorageAccountName
+//     mlWorkspacePrincipalId: r_mlworkspace.identity.principalId
+//     PrivateEndpointId: PrivateEndpointId
+//   }
+// }
+
+// Added 12-19-24
+module m_aml_private_endpoint 'private_endpoint_ML.bicep' = [for (kind, i) in workspaceKinds: if (vnetIntegration) {
+  name: 'aml_private_endpoint_${kind}'
   scope: resourceGroup(privateEndpointRg)
   params: {
     location:location
@@ -333,13 +459,12 @@ module m_aml_private_endpoint 'private_endpoint_ML.bicep' = if (vnetIntegration)
     privateDnsZoneName2:privateDnsZoneName2
     privateDnsZoneConfigsName2:replace(privateDnsZoneName2,'.','-')
     resourceName: mlWorkspaceName
-    resourceID: r_mlworkspace.id
+    resourceID: r_mlworkspaces[i].id
     privateEndpointgroupIds: [
       'amlworkspace'
     ]
     mlStorageName: mlStorageAccountName
-    mlWorkspacePrincipalId: r_mlworkspace.identity.principalId
+    mlWorkspacePrincipalId: r_mlworkspaces[i].identity.principalId
     PrivateEndpointId: PrivateEndpointId
   }
-}
-
+}]
