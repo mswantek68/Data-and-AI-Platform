@@ -303,7 +303,6 @@ resource r_mlworkspace_project 'Microsoft.MachineLearningServices/workspaces@202
   properties: {
     friendlyName: '${mlWorkspaceName}-Project'
     storageAccount: r_mlStorageAccount.id
-    keyVault: r_keyvault.id
     applicationInsights: r_appinsights.id
     containerRegistry: r_containerRegistry.id
     hbiWorkspace: hbiWorkspace
