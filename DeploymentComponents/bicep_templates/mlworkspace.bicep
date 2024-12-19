@@ -309,6 +309,7 @@ resource r_mlworkspace_project 'Microsoft.MachineLearningServices/workspaces@202
     hbiWorkspace: hbiWorkspace
     v1LegacyMode: false
     publicNetworkAccess: publicNetworkAccess
+    hubResourceId: r_mlworkspace_hub.id
     systemDatastoresAuthMode: 'identity'
     managedNetwork: (DeployInManagedVnet == false) ? null : managedNetwork
   }
@@ -565,30 +566,30 @@ resource r_diagnostics_project 'Microsoft.Insights/diagnosticSettings@2021-05-01
 
 
 
-// module m_aml_private_endpoint 'private_endpoint_ML.bicep' = if (vnetIntegration) {
-//   name: 'aml_private_endpoint'
-//   scope: resourceGroup(privateEndpointRg)
-//   params: {
-//     location:location
-//     VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
-//     VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
-//     PrivateEndpointSubnetName: PrivateEndpointSubnetName
-//     UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
-//     DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
-//     PrivateDNSZoneRgName: PrivateDNSZoneRgName
-//     privateDnsZoneName1:privateDnsZoneName1
-//     privateDnsZoneConfigsName1:replace(privateDnsZoneName1,'.','-')
-//     privateDnsZoneName2:privateDnsZoneName2
-//     privateDnsZoneConfigsName2:replace(privateDnsZoneName2,'.','-')
-//     resourceName: mlWorkspaceName
-//     resourceID: r_mlworkspace.id
-//     privateEndpointgroupIds: [
-//       'amlworkspace'
-//     ]
-//     mlStorageName: mlStorageAccountName
-//     mlWorkspacePrincipalId: r_mlworkspace.identity.principalId
-//     PrivateEndpointId: PrivateEndpointId
-//   }
-// }
+module m_aml_private_endpoint 'private_endpoint_ML.bicep' = if (vnetIntegration) {
+  name: 'aml_private_endpoint'
+  scope: resourceGroup(privateEndpointRg)
+  params: {
+    location:location
+    VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
+    VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
+    PrivateEndpointSubnetName: PrivateEndpointSubnetName
+    UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
+    DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
+    PrivateDNSZoneRgName: PrivateDNSZoneRgName
+    privateDnsZoneName1:privateDnsZoneName1
+    privateDnsZoneConfigsName1:replace(privateDnsZoneName1,'.','-')
+    privateDnsZoneName2:privateDnsZoneName2
+    privateDnsZoneConfigsName2:replace(privateDnsZoneName2,'.','-')
+    resourceName: mlWorkspaceName
+    resourceID: r_mlworkspace.id
+    privateEndpointgroupIds: [
+      'amlworkspace'
+    ]
+    mlStorageName: mlStorageAccountName
+    mlWorkspacePrincipalId: r_mlworkspace.identity.principalId
+    PrivateEndpointId: PrivateEndpointId
+  }
+}
 
 
