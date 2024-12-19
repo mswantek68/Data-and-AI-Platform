@@ -16,7 +16,9 @@ param keyVaultName string
 
 param PrimaryRgName string
 
-
+param workspaceKinds array = [
+  'Default','Project','Hub','FeatureStore'
+]
 
 
 @description('Public Networking Access')
@@ -239,12 +241,7 @@ resource r_containerRegistry 'Microsoft.ContainerRegistry/registries@2021-09-01'
 
 
 //Added as a deployment test 12-19-24 before adding to the main template
-param workspaceKinds array = [
-  'Default'
-  'Project'
-  'Hub'
-  'FeatureStore'
-]
+
 
 resource r_mlworkspaces 'Microsoft.MachineLearningServices/workspaces@2023-06-01-preview' = [for kind in workspaceKinds: {
   name: '${mlWorkspaceName}-${kind}'
