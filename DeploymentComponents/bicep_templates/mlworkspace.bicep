@@ -561,35 +561,106 @@ resource r_diagnostics_project 'Microsoft.Insights/diagnosticSettings@2021-05-01
 // }
 
 
+// module m_aml_private_endpoint 'private_endpoint_ML.bicep' = if (vnetIntegration) {
+//   name: 'aml_private_endpoint'
+//   scope: resourceGroup(privateEndpointRg)
+//   params: {
+//     location:location
+//     VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
+//     VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
+//     PrivateEndpointSubnetName: PrivateEndpointSubnetName
+//     UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
+//     DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
+//     PrivateDNSZoneRgName: PrivateDNSZoneRgName
+//     privateDnsZoneName1:privateDnsZoneName1
+//     privateDnsZoneConfigsName1:replace(privateDnsZoneName1,'.','-')
+//     privateDnsZoneName2:privateDnsZoneName2
+//     privateDnsZoneConfigsName2:replace(privateDnsZoneName2,'.','-')
+//     resourceName: mlWorkspaceName
+//     resourceID: r_mlworkspace.id
+//     privateEndpointgroupIds: [
+//       'amlworkspace'
+//     ]
+//     mlStorageName: mlStorageAccountName
+//     mlWorkspacePrincipalId: r_mlworkspace.identity.principalId
+//     PrivateEndpointId: PrivateEndpointId
+//   }
+// }
 
-
-
-
-
-module m_aml_private_endpoint 'private_endpoint_ML.bicep' = if (vnetIntegration) {
-  name: 'aml_private_endpoint'
+module m_aml_private_endpoint_default 'private_endpoint_ML.bicep' = if (vnetIntegration) {
+  name: 'aml_private_endpoint_default'
   scope: resourceGroup(privateEndpointRg)
   params: {
-    location:location
+    location: location
     VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
     VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
     PrivateEndpointSubnetName: PrivateEndpointSubnetName
     UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
     DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
     PrivateDNSZoneRgName: PrivateDNSZoneRgName
-    privateDnsZoneName1:privateDnsZoneName1
-    privateDnsZoneConfigsName1:replace(privateDnsZoneName1,'.','-')
-    privateDnsZoneName2:privateDnsZoneName2
-    privateDnsZoneConfigsName2:replace(privateDnsZoneName2,'.','-')
-    resourceName: mlWorkspaceName
-    resourceID: r_mlworkspace.id
+    privateDnsZoneName1: privateDnsZoneName1
+    privateDnsZoneConfigsName1: replace(privateDnsZoneName1, '.', '-')
+    privateDnsZoneName2: privateDnsZoneName2
+    privateDnsZoneConfigsName2: replace(privateDnsZoneName2, '.', '-')
+    resourceName: '${mlWorkspaceName}-Default'
+    resourceID: r_mlworkspace_default.id
     privateEndpointgroupIds: [
       'amlworkspace'
     ]
     mlStorageName: mlStorageAccountName
-    mlWorkspacePrincipalId: r_mlworkspace.identity.principalId
+    mlWorkspacePrincipalId: r_mlworkspace_default.identity.principalId
     PrivateEndpointId: PrivateEndpointId
   }
 }
 
+module m_aml_private_endpoint_hub 'private_endpoint_ML.bicep' = if (vnetIntegration) {
+  name: 'aml_private_endpoint_hub'
+  scope: resourceGroup(privateEndpointRg)
+  params: {
+    location: location
+    VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
+    VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
+    PrivateEndpointSubnetName: PrivateEndpointSubnetName
+    UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
+    DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
+    PrivateDNSZoneRgName: PrivateDNSZoneRgName
+    privateDnsZoneName1: privateDnsZoneName1
+    privateDnsZoneConfigsName1: replace(privateDnsZoneName1, '.', '-')
+    privateDnsZoneName2: privateDnsZoneName2
+    privateDnsZoneConfigsName2: replace(privateDnsZoneName2, '.', '-')
+    resourceName: '${mlWorkspaceName}-Hub'
+    resourceID: r_mlworkspace_hub.id
+    privateEndpointgroupIds: [
+      'amlworkspace'
+    ]
+    mlStorageName: mlStorageAccountName
+    mlWorkspacePrincipalId: r_mlworkspace_hub.identity.principalId
+    PrivateEndpointId: PrivateEndpointId
+  }
+}
 
+module m_aml_private_endpoint_project 'private_endpoint_ML.bicep' = if (vnetIntegration) {
+  name: 'aml_private_endpoint_project'
+  scope: resourceGroup(privateEndpointRg)
+  params: {
+    location: location
+    VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
+    VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
+    PrivateEndpointSubnetName: PrivateEndpointSubnetName
+    UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
+    DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
+    PrivateDNSZoneRgName: PrivateDNSZoneRgName
+    privateDnsZoneName1: privateDnsZoneName1
+    privateDnsZoneConfigsName1: replace(privateDnsZoneName1, '.', '-')
+    privateDnsZoneName2: privateDnsZoneName2
+    privateDnsZoneConfigsName2: replace(privateDnsZoneName2, '.', '-')
+    resourceName: '${mlWorkspaceName}-Project'
+    resourceID: r_mlworkspace_project.id
+    privateEndpointgroupIds: [
+      'amlworkspace'
+    ]
+    mlStorageName: mlStorageAccountName
+    mlWorkspacePrincipalId: r_mlworkspace_project.identity.principalId
+    PrivateEndpointId: PrivateEndpointId
+  }
+}
