@@ -235,6 +235,7 @@ resource r_containerRegistry 'Microsoft.ContainerRegistry/registries@2021-09-01'
 
 resource r_mlworkspace 'Microsoft.MachineLearningServices/workspaces@2023-06-01-preview' = {
   name: mlWorkspaceName
+  kind: 'Hub'
   location: location
   sku: {
     name: 'Basic'
