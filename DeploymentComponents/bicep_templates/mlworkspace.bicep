@@ -347,22 +347,7 @@ resource r_dataLake_adls_datastores_hub 'Microsoft.MachineLearningServices/works
   }
 }]
 
-// resource r_dataLake_adls_datastores_project 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for containerName in DataLakeContainerNames: {
-//   name: 'ds_adls_${containerName}'
-//   parent: r_mlworkspace_project
-//   properties: {
-//     credentials: {
-//       credentialsType: 'None'
-//     }
-//     description: 'Datastore for the Azure Data Lake Gen2 Account'
-//     properties: {}
-//     tags: {}
-//     datastoreType: 'AzureDataLakeGen2'
-//     accountName: dataLakeName
-//     filesystem: containerName
-//     serviceDataAccessAuthIdentity: 'WorkspaceSystemAssignedIdentity'
-//   }
-// }]
+
 resource r_dataLake_blob_datastores_default 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for containerName in DataLakeContainerNames: {
   name: 'ds_blob_${containerName}'
   parent: r_mlworkspace_default
@@ -397,22 +382,6 @@ resource r_dataLake_blob_datastores_hub 'Microsoft.MachineLearningServices/works
   }
 }]
 
-// resource r_dataLake_blob_datastores_project 'Microsoft.MachineLearningServices/workspaces/datastores@2023-06-01-preview' = [for containerName in DataLakeContainerNames: {
-//   name: 'ds_blob_${containerName}'
-//   parent: r_mlworkspace_project
-//   properties: {
-//     credentials: {
-//       credentialsType: 'None'
-//     }
-//     description: 'Datastore for the Azure Blob Storage Account'
-//     properties: {}
-//     tags: {}
-//     datastoreType: 'AzureBlob'
-//     accountName: dataLakeName
-//     containerName: containerName
-//     serviceDataAccessAuthIdentity: 'WorkspaceSystemAssignedIdentity'
-//   }
-// }]
 
 
 
