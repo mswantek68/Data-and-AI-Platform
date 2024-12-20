@@ -607,28 +607,28 @@ module m_aml_private_endpoint_hub 'private_endpoint_ML.bicep' = if (vnetIntegrat
   }
 }
 
-module m_aml_private_endpoint_project 'private_endpoint_ML.bicep' = if (vnetIntegration) {
-  name: 'aml_private_endpoint_project'
-  scope: resourceGroup(privateEndpointRg)
-  params: {
-    location: location
-    VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
-    VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
-    PrivateEndpointSubnetName: PrivateEndpointSubnetName
-    UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
-    DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
-    PrivateDNSZoneRgName: PrivateDNSZoneRgName
-    privateDnsZoneName1: privateDnsZoneName1
-    privateDnsZoneConfigsName1: replace(privateDnsZoneName1, '.', '-')
-    privateDnsZoneName2: privateDnsZoneName2
-    privateDnsZoneConfigsName2: replace(privateDnsZoneName2, '.', '-')
-    resourceName: '${mlWorkspaceName}-Project'
-    resourceID: r_mlworkspace_project.id
-    privateEndpointgroupIds: [
-      'amlworkspace'
-    ]
-    mlStorageName: mlStorageAccountName
-    mlWorkspacePrincipalId: r_mlworkspace_project.identity.principalId
-    PrivateEndpointId: PrivateEndpointId
-  }
-}
+// module m_aml_private_endpoint_project 'private_endpoint_ML.bicep' = if (vnetIntegration) {
+//   name: 'aml_private_endpoint_project'
+//   scope: resourceGroup(privateEndpointRg)
+//   params: {
+//     location: location
+//     VnetforPrivateEndpointsRgName: VnetforPrivateEndpointsRgName
+//     VnetforPrivateEndpointsName: VnetforPrivateEndpointsName
+//     PrivateEndpointSubnetName: PrivateEndpointSubnetName
+//     UseManualPrivateLinkServiceConnections: UseManualPrivateLinkServiceConnections
+//     DNS_ZONE_SUBSCRIPTION_ID: DNS_ZONE_SUBSCRIPTION_ID
+//     PrivateDNSZoneRgName: PrivateDNSZoneRgName
+//     privateDnsZoneName1: privateDnsZoneName1
+//     privateDnsZoneConfigsName1: replace(privateDnsZoneName1, '.', '-')
+//     privateDnsZoneName2: privateDnsZoneName2
+//     privateDnsZoneConfigsName2: replace(privateDnsZoneName2, '.', '-')
+//     resourceName: '${mlWorkspaceName}-Project'
+//     resourceID: r_mlworkspace_project.id
+//     privateEndpointgroupIds: [
+//       'amlworkspace'
+//     ]
+//     mlStorageName: mlStorageAccountName
+//     mlWorkspacePrincipalId: r_mlworkspace_project.identity.principalId
+//     PrivateEndpointId: PrivateEndpointId
+//   }
+// }
