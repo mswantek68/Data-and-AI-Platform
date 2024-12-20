@@ -302,8 +302,6 @@ resource r_mlworkspace_project 'Microsoft.MachineLearningServices/workspaces@202
   }
   properties: {
     friendlyName: '${mlWorkspaceName}-Project'
-    applicationInsights: r_appinsights.id
-    containerRegistry: r_containerRegistry.id
     hbiWorkspace: hbiWorkspace
     v1LegacyMode: false
     publicNetworkAccess: publicNetworkAccess
