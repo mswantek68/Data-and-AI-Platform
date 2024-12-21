@@ -349,7 +349,7 @@ jobs:
           # Supply deployment parameter values.
           parameters: ./DeploymentComponents/bicep_parameters/${{ inputs.envFolderPath }}/ml_compute.json
             location=${{ env.azureResourceLocation }}
-            mlWorkspaceName=${{ env.mlWorkspaceName }} -Default
+            mlWorkspaceName=${{ env.mlWorkspaceName }}-Default
             dataLakeName=${{ env.dataLakeName }} 
             PrimaryRgName=${{ env.PrimaryRgName }} 
             DeployWithCustomNetworking=${{ env.DeployWithCustomNetworking }}
@@ -367,5 +367,5 @@ jobs:
         with:
           inlineScript: |
             az extension add -n ml
-            az ml workspace update --name ${{ env.mlWorkspaceName }} --resource-group ${{ env.MlRgName }} --image-build-compute image-build-compute-cluster
+            az ml workspace update --name ${{ env.mlWorkspaceName }}-Default --resource-group ${{ env.MlRgName }} --image-build-compute image-build-compute-cluster
           azPSVersion: "latest"
